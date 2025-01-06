@@ -1,0 +1,11 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="CebianlanManager">
+			<method name="CancelPan"/>
+			<method name="OkPan"/>
+		</type>
+		<type fullname="GameManager">
+			<method name="AddTime"/>
+		</type>
+	</assembly>
+</linker>
