@@ -54,8 +54,14 @@ public class GameManager : MonoBehaviour {
 		this.remainingTIme = GameObject.Find ("RemainingTime").GetComponent<TMP_Text>();
 		this.audio = GetComponent<AudioSource> ();
 	}
-	
-	void Update () 
+
+
+    public void Reset()
+    {
+        
+    }
+
+    void Update () 
 	{
 		if (this.state == State.PLAY) 
 		{
@@ -63,7 +69,7 @@ public class GameManager : MonoBehaviour {
 			this.timer += Time.deltaTime;
 			if (isAddTime)
 			{
-				timeLimit = 16;
+				timeLimit = 17;
 			}
 			else
             {
@@ -92,6 +98,7 @@ public class GameManager : MonoBehaviour {
 		}
 		else if (this.state == State.GAMEOVER) 
 		{
+			isAddTime = false;
 			ScoreManager.instance.SetEndScoreView(ScoreManager.instance.curSocre);
 			ScoreManager.instance.SetMaxScoreView(PlayerPrefs.GetInt("MaxScore"));
 			if(ScoreManager.instance.curSocre>PlayerPrefs.GetInt("MaxScore"))
@@ -170,7 +177,12 @@ public class GameManager : MonoBehaviour {
 				{
 					isAddTime = true;
 					PlayerPrefs.SetInt("LastScore", ScoreManager.instance.curSocre);
-					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+					state = State.PLAY;
+					this.anim.SetTrigger("ContinueTrigger");
+					this.moleManager.StartGenerate();
+					this.audio.Play();
+
+					//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 					clickid = "";
 					getClickid();
