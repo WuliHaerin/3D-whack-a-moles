@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 1315287583, guid: 76741459812cc496eb3634fdc0e9cc80, type: 3}
   m_Name: StarkBuilderSetting
   m_EditorClassIdentifier: 
-  wasmResourceUrl: 
-  webGLOutputDir: 
+  wasmResourceUrl: http://
+  webGLOutputDir: D:/heijing/unity/other/3D-whack-a-moles/3D whack-a-mole/webgl
   useByteAudioAPI: 0
   wasmMemorySize: 128
-  isWebGL2: 0
+  isWebGL2: 1
   needCompress: 1
   symbolMode: 1
   profiling: 0
@@ -34,19 +34,19 @@ MonoBehaviour:
   appHost: 2
   compressMethod: 1
   runtimeEnv: 0
-  framework: 0
+  framework: 1
   architecture: 2
   miniApkVersion: 0
   scriptingBackend: 0
   NativeWhiteListRegex:
   - com.bytedance.starksdk
   - _Backup~
-  a: 
+  a: ttff7789ca607d2c1d07
   version: 
   autoVersion: 0
-  b: 
+  b: D:\heijing\unity\other\3D-whack-a-moles\3D whack-a-mole\webgl\webgl_package-20250116_141147.zip
   c: 0
   d: 0
   e: 0
   publishDesc: 
-  idePath: 
+  idePath: "D:/bytedminiprogram-ide/@bytedminiprogram-ide/\u6296\u97F3\u5F00\u53D1\u8005\u5DE5\u5177.exe"

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
 
 	State state;
 	float timer;
+	bool isOver;
 
 	void Start () 
 	{
@@ -57,7 +58,8 @@ public class GameManager : MonoBehaviour {
 	void Update () 
 	{
 		if (this.state == State.PLAY) 
-		{	
+		{
+			isOver = false;
 			this.timer += Time.deltaTime;
 			if (isAddTime)
 			{
@@ -110,6 +112,37 @@ public class GameManager : MonoBehaviour {
 
 			this.remainingTIme.text = "";
 			PlayerPrefs.Save();
+
+			if (!isOver)
+			{
+				isOver = true;
+				ShowInterstitialAd("3989k25lh3g02kk9b8",
+			   () =>
+			   {
+
+			   },
+			   (it, str) =>
+			   {
+				   Debug.LogError("Error->" + str);
+			   });
+			}
+		}
+	}
+
+	/// <summary>
+	/// 播放插屏广告
+	/// </summary>
+	/// <param name="adId"></param>
+	/// <param name="errorCallBack"></param>
+	/// <param name="closeCallBack"></param>
+	public void ShowInterstitialAd(string adId, System.Action closeCallBack, System.Action<int, string> errorCallBack)
+	{
+		starkAdManager = StarkSDK.API.GetStarkAdManager();
+		if (starkAdManager != null)
+		{
+			var mInterstitialAd = starkAdManager.CreateInterstitialAd(adId, errorCallBack, closeCallBack);
+			mInterstitialAd.Load();
+			mInterstitialAd.Show();
 		}
 	}
 
@@ -131,7 +164,7 @@ public class GameManager : MonoBehaviour {
 
 	public void AddTime()
 	{
-		ShowVideoAd("192if3b93qo6991ed0",
+		ShowVideoAd("lnmk284ln3j3l8tc4l",
 			(bol) => {
 				if (bol)
 				{
